@@ -18,7 +18,7 @@ int Day1Part1(const std::string &InputPath)
     if (!Stream.is_open())
         return 0;
     while (std::getline(Stream, Line)) {
-        Nums[0] = -1;
+        Nums[0] = Nums[1] = -1;
         for (char c : Line) {
             if (c >= '0' && c <= '9') {
                 if (Nums[0] == -1)
@@ -47,7 +47,7 @@ int Day1Part2(const std::string &InputPath)
         return 0;
     LoadDigitMap();
     while (std::getline(Stream, Line)) {
-        Nums[0] = -1;
+        Nums[0] = Nums[1] = -1;
         for (i = 0; i < Line.size(); i++) {
             Digit = -1;
             DigitStr = "";
@@ -57,22 +57,13 @@ int Day1Part2(const std::string &InputPath)
                 Digit = c - '0';
                 goto END_DIGIT_PARSE;
             }
-            for (j = i; j < i + 3 && j < Line.size(); j++)
-                DigitStr += Line[j];
-            if (DigitMap.find(DigitStr) != DigitMap.end()) {
-                Digit = DigitMap[DigitStr];
-                goto END_DIGIT_PARSE;
+            for (j = 3; j < 5; j++) {
+                DigitStr = Line.substr(i, j);
+                if (DigitMap.find(DigitStr) != DigitMap.end()) {
+                    Digit = DigitMap[DigitStr];
+                    goto END_DIGIT_PARSE;
+                }
             }
-            for (; j < i + 4 && j < Line.size(); j++)
-                DigitStr += Line[j];
-            if (DigitMap.find(DigitStr) != DigitMap.end()) {
-                Digit = DigitMap[DigitStr];
-                goto END_DIGIT_PARSE;
-            }
-            for (; j < i + 5 && j < Line.size(); j++)
-                DigitStr += Line[j];
-            if (DigitMap.find(DigitStr) != DigitMap.end())
-                Digit = DigitMap[DigitStr];
 END_DIGIT_PARSE:
 
             if (Digit == -1)

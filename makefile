@@ -21,5 +21,5 @@ aoc: aoc.o days
 days:
 	@- $(foreach DAY, $(DAYS), cd $(DAY) && make all && cd ..;)
 clean:
-	@rm *.o aoc
 	@- $(foreach DAY, $(DAYS), cd $(DAY) && make clean && cd ..;)
+	@rm *.o aoc

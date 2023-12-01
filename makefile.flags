@@ -1,0 +1,14 @@
+# Flag definitions for configuration.
+#
+# By ABed Na'aran December 2023
+
+TOP_DIR := /home/amber/advent_of_code
+
+DAYS :=  $(wildcard $(TOP_DIR)/day_*)
+INCLUDE_FLAG := $(foreach DIR, $(DAYS), -I$(DIR))
+LIBS_DIRS_FLAGS := $(foreach DIR, $(DAYS), -L$(DIR))
+LIBS_FLAGS := $(foreach DIR, $(DAYS), -l$(shell basename $(DIR)))
+
+CXX := g++
+CXXFLAGS := -Wall -Werror $(INCLUDE_FLAG) -I.
+LIBS := $(LIBS_DIRS_FLAGS) $(LIBS_FLAGS) 

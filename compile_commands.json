@@ -1,0 +1,47 @@
+[
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wall",
+            "-Werror",
+            "-I/home/amber/advent_of_code/day_1",
+            "-I.",
+            "-o",
+            "day.o",
+            "day.cpp"
+        ],
+        "directory": "/home/amber/advent_of_code",
+        "file": "day.cpp"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wall",
+            "-Werror",
+            "-I/home/amber/advent_of_code/day_1",
+            "-I.",
+            "-o",
+            "aoc.o",
+            "aoc.cpp"
+        ],
+        "directory": "/home/amber/advent_of_code",
+        "file": "aoc.cpp"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wall",
+            "-Werror",
+            "-I/home/amber/advent_of_code/day_1",
+            "-I.",
+            "-o",
+            "day_1.o",
+            "day_1.cpp"
+        ],
+        "directory": "/home/amber/advent_of_code/day_1",
+        "file": "day_1.cpp"
+    }
+]

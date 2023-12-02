@@ -13,4 +13,4 @@ all: $(DAY).o
 	$(CXX) $< $(CXXFLAGS) -c -o $@
 
 clean:
-	@rm *.o *.a
+	-@rm *.o *.a

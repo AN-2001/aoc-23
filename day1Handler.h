@@ -61,7 +61,7 @@ static int
 #define PATHS Day1TestPaths
 #define RESULTS1 Day1ResultsPart1
 #define RESULTS2 Day1ResultsPart2
-#define INPUT "./inputs/day_1.txt"
+#define INPUT "./input/day_1.txt"
 
 #ifdef DAY_1_IMPLEMENTED_PART2
 #define HAS_PART_2

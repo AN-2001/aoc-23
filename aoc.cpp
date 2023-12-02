@@ -19,9 +19,11 @@
 
 /* All the supported days.                                                    */
 const static DayClass Days[] = {
-    {"day_1", new Day1HandlerClass()},
-    /* Add new day here.                                                      */
-    {"", new EmptyHandlerClass()},
+{"day_2", new Day2HandlerClass()},
+{"day_1", new Day1HandlerClass()},
+/* Add new day here.                                                      */
+{"", new EmptyHandlerClass()},
+
 };
 
 const static struct option 

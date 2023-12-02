@@ -56,7 +56,7 @@ int main(int argc, char * const *argv)
         HandleDay(Day, Mode); 
     else
         HandleAllDays(Mode);
-
+    
     return 0;
 }
 

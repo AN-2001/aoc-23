@@ -1,5 +1,7 @@
 #! /bin/bash
 # Add a new day.
+#
+# By Abed Naa'ran December 2023
 
 LastDay=`ls day_* -d | cut -d '_' -f 2 | sort -nr | head -1`
 NewDay=`echo "$LastDay + 1" | bc`

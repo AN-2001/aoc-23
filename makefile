@@ -11,9 +11,9 @@ all: $(OBJ) aoc
 
 analyze:
 	-@mkdir -p ./cppCheckBuild
-	-@cppcheck --language=c++ --error-exitcode=1 \
+	@cppcheck --language=c++ --error-exitcode=1 \
 		     --cppcheck-build-dir=./cppCheckBuild *.cpp *.h */*.cpp */*.h \
-			 2> analysis
+			 2> analysis.out
 
 aoc: aoc.o days 
 	$(CXX) $< $(OBJ) $(LIBS) -o $@
@@ -28,4 +28,4 @@ days:
 	-@- $(foreach DAY, $(DAYS), cd $(DAY) && make all && cd ..;)
 clean:
 	-@- $(foreach DAY, $(DAYS), cd $(DAY) && make clean && cd ..;)
-	-@rm *.o aoc analysis
+	-@rm *.o aoc 2> /dev/null

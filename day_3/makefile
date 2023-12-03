@@ -2,7 +2,7 @@
 # 	
 # By Abed Na'aran December 2023
 
-include ../makefile.flags
+include ../makeflags
 DAY := day_3
 
 all: $(DAY).o

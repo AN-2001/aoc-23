@@ -2,7 +2,7 @@
 #
 # By ABed Na'aran December 2023
 
-TOP_DIR := /home/amber/projects/advent_of_code
+TOP_DIR := $(PROJECTS)/advent_of_code
 
 DAYS :=  $(wildcard $(TOP_DIR)/day_*)
 INCLUDE_FLAG := $(foreach DIR, $(DAYS), -I$(DIR))

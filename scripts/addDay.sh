@@ -30,4 +30,4 @@ sed -i "s/DAY_1/DAY_$NewDay/g" *.cpp *.h makefile
 sed -i "s/Day1/Day$NewDay/g" *.cpp *.h makefile
 popd 
 
-
+cp -r ./tests/day_1 ./tests/day_$NewDay

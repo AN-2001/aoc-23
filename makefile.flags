@@ -11,5 +11,5 @@ LIBS_FLAGS := $(foreach DIR, $(DAYS), -l$(shell basename $(DIR)))
 
 CXX := g++
 CXXFLAGS := -Wall -Werror -pedantic -Wextra -Wfatal-errors \
-			$(INCLUDE_FLAG) -I. -g
+			$(INCLUDE_FLAG) -I. -I$(TOP_DIR) -g
 LIBS := $(LIBS_DIRS_FLAGS) $(LIBS_FLAGS) 

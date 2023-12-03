@@ -8,11 +8,11 @@
 *                                                                              *
 \******************************************************************************/
 
-
 #ifndef DAY_2_H
 #define DAY_2_H
 
 #include <string>
+#include "config.h"
 
 #define DAY_2_IMPLEMENTED_PART2 
 
@@ -28,10 +28,10 @@
 *                                                                              *
 * Return                                                                       *
 *                                                                              *
-*  -int: The sum of the IDs of the valid rows.                                 *
+*  -ResultType: The sum of the IDs of the valid rows.                          *
 *                                                                              *
 \******************************************************************************/
-int Day2Part1(const std::string &InputPath);
+ResultType Day2Part1(const std::string &InputPath);
 
 /******************************************************************************\
 * Day2Part2                                                                    *
@@ -44,9 +44,9 @@ int Day2Part1(const std::string &InputPath);
 *                                                                              *
 * Return                                                                       *
 *                                                                              *
-*  -int: The sum of the IDs of the valid rows.                                 *
+*  -ResultType: The sum of the IDs of the valid rows.                          *
 *                                                                              *
 \******************************************************************************/
-int Day2Part2(const std::string &InputPath);
+ResultType Day2Part2(const std::string &InputPath);
 
 #endif /* DAY_2_H */

@@ -7,7 +7,7 @@
 static std::unordered_map<std::string, int> DigitMap;
 static inline void LoadDigitMap();
 
-int Day1Part1(const std::string &InputPath)
+ResultType Day1Part1(const std::string &InputPath)
 {
     std::ifstream Stream;
     std::string Line;
@@ -33,7 +33,7 @@ int Day1Part1(const std::string &InputPath)
     return Sum;
 }
 
-int Day1Part2(const std::string &InputPath)
+ResultType Day1Part2(const std::string &InputPath)
 {
     std::ifstream Stream;
     std::string Line, DigitStr;

@@ -19,12 +19,25 @@
 
 /* All the supported days.                                                    */
 const static DayClass Days[] = {
+{"day_3", new Day3HandlerClass()},
 {"day_2", new Day2HandlerClass()},
 {"day_1", new Day1HandlerClass()},
 /* Add new day here.                                                      */
 {"", new EmptyHandlerClass()},
 
 };
+
+static const char * const
+    Usage = "[The advent of code runner]\n"
+            "Usage:\n"  
+            "\t%s {--help} {--day=[day]} {--mode=[test/debug]} {--test} {--run)\n"
+            "\thelp: Display this message.\n"
+            "\tday: Day to use, uses all days if not specefied.\n"
+            "\tmode: Mode to run in, run to run against aot input, test to run tests.\n"
+            "\trun: Run aot input.\n"
+            "\ttest: Run tests.\n"
+            SIGNATURE;
+    
 
 const static struct option 
     Options[] = {
@@ -35,6 +48,7 @@ const static struct option
         /* Alternatives to mode.                                              */
         {"run", no_argument, 0, 0},
         {"test", no_argument, 0, 0},
+        {"help", no_argument, 0, 0},
         {0, 0, 0, 0}
     };
 /* Parsed arguments.                                                          */
@@ -87,6 +101,9 @@ static inline void ReadArgs(int argc, char * const *argv)
             case 3:
                 Mode = MODE_TEST;
                 break;
+            case 4:
+                printf(Usage, argv[0]);
+                exit(0);
         }
     }
 

@@ -10,8 +10,9 @@
 
 /* For a more robust solution do a top-down parser, the grammar is very       */
 /* simple.                                                                    */
-
 /* There's no point here as the input is always valid.                        */
+/* We'll just implement it in a co-routine style.                             */
+/* One function parses and supplies input, the other validates.               */
 
 struct RevealStruct {
     int ID, NumRed, NumGreen, NumBlue, IsNewGame;
@@ -30,7 +31,7 @@ struct ContextStruct {
 static inline RevealStruct GetNextReveal(std::ifstream &Stream,
                                          ContextStruct &C0ntext);
 
-int Day2Part1(const std::string &InputPath)
+ResultType Day2Part1(const std::string &InputPath)
 {
     std::ifstream Stream;
     ContextStruct Context;
@@ -55,7 +56,7 @@ int Day2Part1(const std::string &InputPath)
     return Sum;
 }
 
-int Day2Part2(const std::string &InputPath)
+ResultType Day2Part2(const std::string &InputPath)
 {
     std::ifstream Stream;
     ContextStruct Context;
@@ -107,7 +108,7 @@ static inline RevealStruct GetNextReveal(std::ifstream &Stream,
         /* Now we know we're at a number, read it and check which colour.     */
         std::sscanf(Context.Row.c_str() + Context.Column,
                     "%d %n", &NumCubes, &Read);
-        Context.Column +=  Read;
+        Context.Column += Read;
         switch (Context.Row[Context.Column]) {
             case 'r':
                 Ret.NumRed = NumCubes;

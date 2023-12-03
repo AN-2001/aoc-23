@@ -11,23 +11,23 @@ NewHandler=./day$NewDay'Handler.h'
 DD="Day$NewDay"
 Class="HandlerClass()"
 NewHandlerClass="new $DD$Class"
-cp -r day_1 $NewDir
-cp ./day1Handler.h $NewHandler
+cp -r ./scripts/templates/day_T $NewDir
+cp ./scripts/templates/dayTHandler.h $NewHandler
 
-sed -i "s/day_1/$NewFile/g" $NewHandler
-sed -i "s/day 1/day $NewDay/g" $NewHandler
-sed -i "s/DAY_1/DAY_$NewDay/g" $NewHandler
-sed -i "s/Day1/Day$NewDay/g" $NewHandler
+sed -i "s/day_T/$NewFile/g" $NewHandler
+sed -i "s/day T/day $NewDay/g" $NewHandler
+sed -i "s/DAY_T/DAY_$NewDay/g" $NewHandler
+sed -i "s/DayT/Day$NewDay/g" $NewHandler
 sed -i "13a#include \"`basename $NewHandler`\"" ./inc.h
-sed -i "21a{\"day_$NewDay\", $NewHandlerClass}," ./aoc.cpp
+sed -i "22a{\"day_$NewDay\", $NewHandlerClass}," ./aoc.cpp
 
 pushd $NewDir
-mv day_1.cpp $NewFile.cpp
-mv day_1.h $NewFile.h
-sed -i "s/day_1/$NewFile/g" *.cpp *.h makefile
-sed -i "s/day 1/day $NewDay/g" *.cpp *.h makefile
-sed -i "s/DAY_1/DAY_$NewDay/g" *.cpp *.h makefile
-sed -i "s/Day1/Day$NewDay/g" *.cpp *.h makefile
+mv day_T.cpp $NewFile.cpp
+mv day_T.h $NewFile.h
+sed -i "s/day_T/$NewFile/g" *.cpp *.h makefile
+sed -i "s/day T/day $NewDay/g" *.cpp *.h makefile
+sed -i "s/DAY_T/DAY_$NewDay/g" *.cpp *.h makefile
+sed -i "s/DayT/Day$NewDay/g" *.cpp *.h makefile
 popd 
 
-cp -r ./tests/day_1 ./tests/day_$NewDay
+cp -r ./scripts/templates/day_T_test ./tests/day_$NewDay

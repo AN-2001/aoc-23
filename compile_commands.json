@@ -5,13 +5,42 @@
             "-c",
             "-Wall",
             "-Werror",
-            "-I/home/amber/advent_of_code/day_1",
+            "-pedantic",
+            "-Wextra",
+            "-Wfatal-errors",
+            "-I/home/amber/projects/advent_of_code/day_2",
+            "-I/home/amber/projects/advent_of_code/day_3",
+            "-I/home/amber/projects/advent_of_code/day_1",
             "-I.",
+            "-I/home/amber/projects/advent_of_code",
+            "-g",
+            "-o",
+            "day_1.o",
+            "day_1.cpp"
+        ],
+        "directory": "/home/amber/projects/advent_of_code/day_1",
+        "file": "day_1.cpp"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wall",
+            "-Werror",
+            "-pedantic",
+            "-Wextra",
+            "-Wfatal-errors",
+            "-I/home/amber/projects/advent_of_code/day_2",
+            "-I/home/amber/projects/advent_of_code/day_3",
+            "-I/home/amber/projects/advent_of_code/day_1",
+            "-I.",
+            "-I/home/amber/projects/advent_of_code",
+            "-g",
             "-o",
             "day.o",
             "day.cpp"
         ],
-        "directory": "/home/amber/advent_of_code",
+        "directory": "/home/amber/projects/advent_of_code",
         "file": "day.cpp"
     },
     {
@@ -20,14 +49,21 @@
             "-c",
             "-Wall",
             "-Werror",
-            "-I/home/amber/advent_of_code/day_1",
+            "-pedantic",
+            "-Wextra",
+            "-Wfatal-errors",
+            "-I/home/amber/projects/advent_of_code/day_2",
+            "-I/home/amber/projects/advent_of_code/day_3",
+            "-I/home/amber/projects/advent_of_code/day_1",
             "-I.",
+            "-I/home/amber/projects/advent_of_code",
+            "-g",
             "-o",
-            "aoc.o",
-            "aoc.cpp"
+            "day_3.o",
+            "day_3.cpp"
         ],
-        "directory": "/home/amber/advent_of_code",
-        "file": "aoc.cpp"
+        "directory": "/home/amber/projects/advent_of_code/day_3",
+        "file": "day_3.cpp"
     },
     {
         "arguments": [
@@ -35,13 +71,42 @@
             "-c",
             "-Wall",
             "-Werror",
-            "-I/home/amber/advent_of_code/day_1",
+            "-pedantic",
+            "-Wextra",
+            "-Wfatal-errors",
+            "-I/home/amber/projects/advent_of_code/day_2",
+            "-I/home/amber/projects/advent_of_code/day_3",
+            "-I/home/amber/projects/advent_of_code/day_1",
             "-I.",
+            "-I/home/amber/projects/advent_of_code",
+            "-g",
             "-o",
-            "day_1.o",
-            "day_1.cpp"
+            "day_2.o",
+            "day_2.cpp"
         ],
-        "directory": "/home/amber/advent_of_code/day_1",
-        "file": "day_1.cpp"
+        "directory": "/home/amber/projects/advent_of_code/day_2",
+        "file": "day_2.cpp"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wall",
+            "-Werror",
+            "-pedantic",
+            "-Wextra",
+            "-Wfatal-errors",
+            "-I/home/amber/projects/advent_of_code/day_2",
+            "-I/home/amber/projects/advent_of_code/day_3",
+            "-I/home/amber/projects/advent_of_code/day_1",
+            "-I.",
+            "-I/home/amber/projects/advent_of_code",
+            "-g",
+            "-o",
+            "aoc.o",
+            "aoc.cpp"
+        ],
+        "directory": "/home/amber/projects/advent_of_code",
+        "file": "aoc.cpp"
     }
 ]

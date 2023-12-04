@@ -1,18 +1,18 @@
 /******************************************************************************\
-*  DayTHandler.h                                                               *
+*  Day4Handler.h                                                               *
 *                                                                              *
-*  Handles day T.                                                              *
+*  Handles day 4.                                                              *
 *                                                                              *
 *              Written by Abed Na'ran                          December 2023   *
 *                                                                              *
 \******************************************************************************/
 
-#ifndef DAY_T_HANDLER
-#define DAY_T_HANDLER
+#ifndef DAY_4_HANDLER
+#define DAY_4_HANDLER
 
 #include <iostream>
 #include "day.h"
-#include "day_T/day_T.h"
+#include "day_4/day_4.h"
 #include <assert.h>
 
 #ifdef PART_1 
@@ -40,33 +40,33 @@
 /* Only modify below.                                                         */
 /* Enter the paths for the tests.                                             */
 static const char 
-    *DayTTestPaths[] = {
-    "./tests/day_T/test1",
+    *Day4TestPaths[] = {
+    "./tests/day_4/test1",
 };
 /* Enter the expected results in the same order of the paths.                 */
 static int
-    DayTResultsPart1[] = {
-    0,
+    Day4ResultsPart1[] = {
+    13,
 },
-    DayTResultsPart2[] = {
-    0,
+    Day4ResultsPart2[] = {
+    30,
 };
 
 /* Modify to the corresponding day.                                           */
-#define PART_1 DayTPart1
-#define PART_2 DayTPart2
-#define PATHS DayTTestPaths
-#define RESULTS1 DayTResultsPart1
-#define RESULTS2 DayTResultsPart2
-#define INPUT "./input/day_T.txt"
+#define PART_1 Day4Part1
+#define PART_2 Day4Part2
+#define PATHS Day4TestPaths
+#define RESULTS1 Day4ResultsPart1
+#define RESULTS2 Day4ResultsPart2
+#define INPUT "./input/day_4.txt"
 
-#ifdef DAY_T_IMPLEMENTED_PART2
+#ifdef DAY_4_IMPLEMENTED_PART2
 #define HAS_PART_2
 #endif
 
-class DayTHandlerClass : public DayHandlerClass {
+class Day4HandlerClass : public DayHandlerClass {
     public:
-        ~DayTHandlerClass() = default;
+        ~Day4HandlerClass() = default;
 /* DO NOT MODIFY ANYTHING BELOW.                                              */
         void Run() const 
         {
@@ -78,7 +78,7 @@ class DayTHandlerClass : public DayHandlerClass {
             printf("Part 2: %d.\n", Output);
 #else
             (void)RESULTS2; /* Suprress warning. */
-#endif /* DAY_T_IMPLEMENTED_PART2 */
+#endif /* DAY_4_IMPLEMENTED_PART2 */
 
         }
 
@@ -91,7 +91,7 @@ class DayTHandlerClass : public DayHandlerClass {
             std::cout << "Testing part 1:" << std::endl;
             for (i = 0; i < NumTests; i++) {
                 CurrentTestPath = PATHS[i];
-                Output = DayTPart1(CurrentTestPath);
+                Output = Day4Part1(CurrentTestPath);
                 ASSERT_EQ(Output, RESULTS1[i]);
             }
 
@@ -99,7 +99,7 @@ class DayTHandlerClass : public DayHandlerClass {
             std::cout << "Testing part 2:" << std::endl;
             for (i = 0; i < NumTests; i++) {
                 CurrentTestPath = PATHS[i];
-                Output = DayTPart2(CurrentTestPath);
+                Output = Day4Part2(CurrentTestPath);
                 ASSERT_EQ(Output, RESULTS2[i]);
             }
 #endif /* HAS_PART_2 */
@@ -114,4 +114,4 @@ class DayTHandlerClass : public DayHandlerClass {
 #undef RESULTS1
 #undef RESULTS2
 #undef HAS_PART_2
-#endif /* DAY_T_HANDLER */
+#endif /* DAY_4_HANDLER */

@@ -68,39 +68,48 @@ class DayTHandlerClass : public DayHandlerClass {
     public:
         ~DayTHandlerClass() = default;
 /* DO NOT MODIFY ANYTHING BELOW.                                              */
-        void Run() const 
+        void Run(int Part) const 
         {
             int Output;
-            Output = PART_1(INPUT);
-            printf("Part 1: %d.\n", Output);
+
+            if (Part == -1 || Part == 1) {
+                Output = PART_1(INPUT);
+                printf("Part 1: %d.\n", Output);
+            }
 #ifdef HAS_PART_2
-            Output = PART_2(INPUT);
-            printf("Part 2: %d.\n", Output);
+            if (Part == -1 || Part == 2) {
+                Output = PART_2(INPUT);
+                printf("Part 2: %d.\n", Output);
+            }
 #else
             (void)RESULTS2; /* Suprress warning. */
 #endif /* DAY_T_IMPLEMENTED_PART2 */
 
         }
 
-        void Test() const
+        void Test(int Part) const
         {
             int Output;
             size_t i,
                 NumTests = sizeof(PATHS) / sizeof(PATHS[0]);
 
-            std::cout << "Testing part 1:" << std::endl;
-            for (i = 0; i < NumTests; i++) {
-                CurrentTestPath = PATHS[i];
-                Output = DayTPart1(CurrentTestPath);
-                ASSERT_EQ(Output, RESULTS1[i]);
+            if (Part == -1 || Part == 1) {
+                std::cout << "Testing part 1:" << std::endl;
+                for (i = 0; i < NumTests; i++) {
+                    CurrentTestPath = PATHS[i];
+                    Output = DayTPart1(CurrentTestPath);
+                    ASSERT_EQ(Output, RESULTS1[i]);
+                }
             }
 
 #ifdef HAS_PART_2
-            std::cout << "Testing part 2:" << std::endl;
-            for (i = 0; i < NumTests; i++) {
-                CurrentTestPath = PATHS[i];
-                Output = DayTPart2(CurrentTestPath);
-                ASSERT_EQ(Output, RESULTS2[i]);
+            if (Part == -1 || Part == 2) {
+                std::cout << "Testing part 2:" << std::endl;
+                for (i = 0; i < NumTests; i++) {
+                    CurrentTestPath = PATHS[i];
+                    Output = DayTPart2(CurrentTestPath);
+                    ASSERT_EQ(Output, RESULTS2[i]);
+                }
             }
 #endif /* HAS_PART_2 */
         }

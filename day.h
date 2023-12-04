@@ -46,8 +46,8 @@ void AssertEq(int v1, int v2);
 /* All the handlers should implement this interface.                          */
 class DayHandlerClass {
     public:
-    virtual void Run() const = 0;
-    virtual void Test() const = 0;
+    virtual void Run(int Part) const = 0;
+    virtual void Test(int Part) const = 0;
     virtual ~DayHandlerClass() = default;
 };
 
@@ -59,7 +59,7 @@ class DayClass {
         const DayHandlerClass *Handler;   
     public:
         DayClass(const std::string &Name, const DayHandlerClass *Handler);
-        void Handle(ModeEnum Mode) const;
+        void Handle(ModeEnum Mode, int Part) const;
         ~DayClass();
 };
 

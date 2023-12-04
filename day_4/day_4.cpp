@@ -6,6 +6,7 @@
 #include <istream>
 #include <set>
 #include <vector>
+#include <array>
 
 static inline void HandleCard(const std::string &Card,
                               ResultType *NumPoints = NULL,
@@ -33,25 +34,24 @@ ResultType Day4Part2(const std::string &InputPath)
 {
     std::ifstream File;
     std::string Line;
-    std::vector<int> Winnings, Counts;
+    std::array<int, 200> Counts{0};
     ResultType NumWinnings,
             Total = 0;
-    size_t i, j;
+    size_t j,
+           i = 0;
 
     File.open(InputPath);
     if (!File.is_open())
         return 0;
     while (std::getline(File, Line)) {
         HandleCard(Line, NULL, &NumWinnings);
-        Winnings.push_back(NumWinnings);
-        Counts.push_back(1);
+        Counts[i]++;
+        Total += Counts[i];
+        for (j = i + 1; j <= i + NumWinnings; j++)
+            Counts[j] += Counts[i];
+        i++;
     }
 
-    for (i = 0; i < Winnings.size(); i++)
-        for (j = i + 1; j <= i + Winnings[i]; j++)
-            Counts[j] += Counts[i];
-    for (i = 0; i < Counts.size(); i++)
-        Total += Counts[i];
     return Total;
 }
 
@@ -62,25 +62,25 @@ static inline void HandleCard(const std::string &Card,
     int Num, Read;
     const char
         *Str = Card.c_str();
-    std::set<int> Winning;
+    std::array<int, 256> Winning{0};
 
     if (NumWinning)
         *NumWinning = 0;
     if (NumPoints)
         *NumPoints = 0;
 
-    std::sscanf(Str, "Card %d: %n", &Num, &Read);
+    sscanf(Str, "Card %d: %n", &Num, &Read);
     Str += Read;
     while (Str[0] != '|') {
-        std::sscanf(Str, "%d %n", &Num, &Read);
+        sscanf(Str, "%d %n", &Num, &Read);
         Str += Read;
-        Winning.insert(Num);
+        Winning[Num] = 1;
     }
     Str++;
     while (Str[0]) {
-        std::sscanf(Str, "%d %n", &Num, &Read);
+        sscanf(Str, "%d %n", &Num, &Read);
         Str += Read;
-        if (Winning.count(Num)) {
+        if (Winning[Num]) {
             if (NumWinning)
                 (*NumWinning)++;
             if (NumPoints) {

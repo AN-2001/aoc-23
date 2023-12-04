@@ -4,12 +4,14 @@
 
 class EmptyHandlerClass : public DayHandlerClass {
     public:
-        void Run() const 
+        void Run(int Part) const 
         {
+            (void)Part;
         }
 
-        void Test() const
+        void Test(int Part) const
         {
+            (void)Part;
         }
         
         ~EmptyHandlerClass() = default;

@@ -33,6 +33,7 @@ static const char * const
             "\t%s {--help} {--day=[day]} {--mode=[test/debug]} {--test} {--run)\n"
             "\thelp: Display this message.\n"
             "\tday: Day to use, uses all days if not specefied.\n"
+            "\tpart: Part to use, uses both parts if not specefied.\n"
             "\tmode: Mode to run in, run to run against aot input, test to run tests.\n"
             "\trun: Run aot input.\n"
             "\ttest: Run tests.\n"
@@ -48,12 +49,14 @@ const static struct option
         {"test", no_argument, 0, 0},
         {"help", no_argument, 0, 0},
         {"time", no_argument, 0, 0},
+        {"part", required_argument, 0, 0},
         {0, 0, 0, 0}
     };
 /* Parsed arguments.                                                          */
 static std::string Day = ""; 
 static bool ShowTime = false;
 static ModeEnum Mode = MODE_RUN;
+static int Part = -1;
 
 /* Read and parse arguments.                                                  */
 static inline void ReadArgs(int argc, char * const *argv);
@@ -80,7 +83,7 @@ static inline void ReadArgs(int argc, char * const *argv)
 {
     int Ret, Index;
 
-    while ((Ret = getopt_long(argc, argv, "", Options, &Index)) != -1) {
+    while ((Ret = getopt_long(argc, argv, "", Options, &Index)) != -1 && Ret != '?') {
         switch (Index) {
             case 0:
                 Day = optarg;
@@ -108,8 +111,23 @@ static inline void ReadArgs(int argc, char * const *argv)
             case 5:
                 ShowTime = true;
                 break;
+            case 6:
+                if (strcmp(optarg, "part_1") == 0)
+                    Part = 1;
+                else if (strcmp(optarg, "part_2") == 0) 
+                    Part = 2;
+                else {
+                    fprintf(stderr, "Unrecognized mode, aborting.\n");
+                    std::exit(1);
+                }
+                break;
+
+
         }
     }
+
+    if (Ret == '?')
+        exit(1);
 
 }
 
@@ -125,7 +143,7 @@ static inline void HandleDay(const std::string &Day, ModeEnum Mode)
             else
                 std::cout << "Testing " << Days[i].Name << "." << std::endl;
             Start = std::chrono::steady_clock::now();
-            Days[i].Handle(Mode);
+            Days[i].Handle(Mode, Part);
             End = std::chrono::steady_clock::now();
             if (Mode == MODE_TEST) 
                 std::cout << "Passed all tests." << std::endl;
@@ -150,7 +168,7 @@ static inline void HandleAllDays(ModeEnum Mode)
         else
             std::cout << "Testing " << Days[i].Name << "." << std::endl;
         Start = std::chrono::steady_clock::now();
-        Days[i].Handle(Mode);
+        Days[i].Handle(Mode, Part);
         End = std::chrono::steady_clock::now();
         if (Mode == MODE_TEST) 
             std::cout << "Passed all tests." << std::endl;

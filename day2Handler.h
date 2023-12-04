@@ -75,37 +75,46 @@ class Day2HandlerClass : public DayHandlerClass {
     public:
         ~Day2HandlerClass() = default;
 /* DO NOT MODIFY ANYTHING BELOW.                                              */
-        void Run() const 
+        void Run(int Part) const 
         {
             int Output;
-            Output = PART_1(INPUT);
-            printf("Part 1: %d.\n", Output);
+
+            if (Part == -1 || Part == 1) {
+                Output = PART_1(INPUT);
+                printf("Part 1: %d.\n", Output);
+            }
 
             /* Suppress warning. */
             (void)(Day2ResultsPart2);
 #ifdef HAS_PART_2
-            Output = PART_2(INPUT);
-            printf("Part 2: %d.\n", Output);
+            if (Part == -1 || Part == 2) {
+                Output = PART_2(INPUT);
+                printf("Part 2: %d.\n", Output);
+            }
 #endif /* DAY_2_IMPLEMENTED_PART2 */
         }
 
-        void Test() const
+        void Test(int Part) const
         {
             int Output;
             size_t i,
                 NumTests = sizeof(PATHS) / sizeof(PATHS[0]);
 
-            for (i = 0; i < NumTests; i++) {
-                CurrentTestPath = PATHS[i];
-                Output = Day2Part1(CurrentTestPath);
-                ASSERT_EQ(Output, RESULTS1[i]);
+            if (Part == -1 || Part == 1) {
+                for (i = 0; i < NumTests; i++) {
+                    CurrentTestPath = PATHS[i];
+                    Output = Day2Part1(CurrentTestPath);
+                    ASSERT_EQ(Output, RESULTS1[i]);
+                }
             }
 
 #ifdef HAS_PART_2
-            for (i = 0; i < NumTests; i++) {
-                CurrentTestPath = PATHS[i];
-                Output = Day2Part2(CurrentTestPath);
-                ASSERT_EQ(Output, RESULTS2[i]);
+            if (Part == -1 || Part == 2) {
+                for (i = 0; i < NumTests; i++) {
+                    CurrentTestPath = PATHS[i];
+                    Output = Day2Part2(CurrentTestPath);
+                    ASSERT_EQ(Output, RESULTS2[i]);
+                }
             }
 #endif /* HAS_PART_2 */
         }

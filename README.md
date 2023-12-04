@@ -17,5 +17,4 @@ Add a new day.
 
 ## building:
 The project is makefile based, everything is tested under linux.
-<<<<<<< HEAD
 You may port to other systems by editing makeflags but there are no guarantees as I've never done it.

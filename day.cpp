@@ -32,14 +32,14 @@ DayClass::DayClass(const std::string &Name, const DayHandlerClass *Handler)
 *  -void.                                                                      *
 *                                                                              *
 \******************************************************************************/
-void DayClass::Handle(ModeEnum Mode) const
+void DayClass::Handle(ModeEnum Mode, int Part) const
 {
     switch (Mode) {
         case MODE_RUN:
-            Handler -> Run();
+            Handler -> Run(Part);
             break;
         case MODE_TEST:
-            Handler -> Test();
+            Handler -> Test(Part);
             break;
     }
 }

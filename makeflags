@@ -3,6 +3,7 @@
 # By ABed Na'aran December 2023
 
 TOP_DIR := $(PROJECTS)/advent_of_code
+MAKE := /bin/make
 
 DAYS :=  $(wildcard $(TOP_DIR)/day_*)
 INCLUDE_FLAG := $(foreach DIR, $(DAYS), -I$(DIR))

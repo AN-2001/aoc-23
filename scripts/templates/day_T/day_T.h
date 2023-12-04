@@ -14,7 +14,7 @@
 #include <string>
 #include "config.h"
 
-#define DAY_T_IMPLEMENTED_PART2 
+// #define DAY_T_IMPLEMENTED_PART2 
 
 /******************************************************************************\
 * DayTPart2                                                                    *

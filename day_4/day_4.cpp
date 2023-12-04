@@ -6,7 +6,7 @@
 #include <istream>
 #include <set>
 #include <vector>
-#include <array>
+#include <memory.h>
 
 static inline void HandleCard(const std::string &Card,
                               ResultType *NumPoints = NULL,
@@ -34,12 +34,13 @@ ResultType Day4Part2(const std::string &InputPath)
 {
     std::ifstream File;
     std::string Line;
-    std::array<int, 200> Counts{0};
+    int Counts[256];
     ResultType NumWinnings,
             Total = 0;
     size_t j,
            i = 0;
 
+    memset(Counts, 0, sizeof(Counts));
     File.open(InputPath);
     if (!File.is_open())
         return 0;
@@ -62,13 +63,14 @@ static inline void HandleCard(const std::string &Card,
     int Num, Read;
     const char
         *Str = Card.c_str();
-    std::array<int, 256> Winning{0};
+    int Winning[256];
 
     if (NumWinning)
         *NumWinning = 0;
     if (NumPoints)
         *NumPoints = 0;
 
+    memset(Winning, 0, sizeof(Winning));
     sscanf(Str, "Card %d: %n", &Num, &Read);
     Str += Read;
     while (Str[0] != '|') {

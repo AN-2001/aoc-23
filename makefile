@@ -25,7 +25,7 @@ aoc: aoc.o days
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 days:
-	-@- $(foreach DAY, $(DAYS), cd $(DAY) && make all && cd ..;)
+	-@- $(foreach DAY, $(DAYS), cd $(DAY) && $(MAKE) all && cd ..;)
 clean:
-	-@- $(foreach DAY, $(DAYS), cd $(DAY) && make clean && cd ..;)
+	-@- $(foreach DAY, $(DAYS), cd $(DAY) && $(MAKE) clean && cd ..;)
 	-@rm *.o aoc 2> /dev/null

@@ -20,6 +20,7 @@
 
 /* All the supported days.                                                    */
 const static DayClass Days[] = {
+{"day_5", new Day5HandlerClass()},
 {"day_4", new Day4HandlerClass()},
 {"day_3", new Day3HandlerClass()},
 {"day_2", new Day2HandlerClass()},

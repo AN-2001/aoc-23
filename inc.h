@@ -11,6 +11,7 @@
 #ifndef INC_H
 #define INC_H
 
+#include "day5Handler.h"
 #include "day4Handler.h"
 #include "day3Handler.h"
 #include "day2Handler.h"
